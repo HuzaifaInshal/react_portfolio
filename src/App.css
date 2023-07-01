@@ -1,38 +1,534 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,body{
+  margin: 0;
+  padding: 0;
+  
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html{
+  scroll-behavior: smooth;
 }
+*{
+  font-family: 'Roboto Condensed', sans-serif;
+  /* cursor: none; */
+}
+body{
+  overflow-x: hidden;
+  
+}
+:root{
+  --primary-color:#5918df;
+  --font:3rem;
+  --fonta:48px;
+  --fontab:30px;
+  --fontb:25px;
+  --fontc:22px;
+  --fontd:20px;
+  --fonte:18px;
+  --fontf:16.5px;
+  --fontg:14px;
+  --back:#5918df
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  justify-content: space-around;
+  z-index: 5;
+  height: 80px;
+  line-height: 80px;
+  position: fixed;
+  width: 100vw;
+  transition: 00.4s;
+  box-shadow: inset 0 35px 13px rgba(14,12,22,.85);
+}
+nav:hover{
+  height: 80px;
+}
+.logoHolder{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.logo{
+  color: white;
+  font-size: var(--font);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.logoSpan{
+  color: var(--primary-color);
+  font-size: 40px;
+}
+.linksHolder ul{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+  margin: 0 15px;
+}
+.notactive{
+  color: hsla(0,0%,100%,.5);
+  font-size: var(--fontb);
+  font-weight: 700;
+  text-decoration: none;
+
+}
+.notactive:hover{
+  color: rgba(255, 255, 255, 0.741);
+}
+.notactive span{
+  color: #494949;
+  font-size: var(--fontb);
+}.active{
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.holder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  /* position: absolute;
+  top: 20%;
+  left: 20%; */
+  z-index: 2;
+}
+.timeline{
+  width: 1px;
+  background-color: var(--primary-color);
+  height: calc(100% - 9px);
+}
+.circle{
+  height: 9px;
+  width: 9px;
+  border-radius: 100px;
+  background-color: #1b191e;
+  border: 2px solid var(--primary-color);
+  z-index: 9;
 }
 
-@keyframes App-logo-spin {
-  from {
+
+.start{
+  height: calc(100vh - 80px);
+  width: 100vw;
+  background-image: url('../public/assets/back.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+
+  padding-top: calc(10% + 80px);
+  padding-left:20% ;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.section-title{
+  color: #988e9f;
+  font-size: var(--fontd);
+  margin: 0;
+  padding: 0;
+  margin-top: -5px;
+  font-weight: 300;
+}
+.titleholder{
+  display: flex;
+  flex-direction: column;
+
+}
+.title-title{
+  color: white;
+  font-size: var(--fonta);
+  font-weight: 700;
+}
+.uh{
+  color: var(--primary-color);
+}
+.test{
+  right: 0;
+  position: absolute;
+  background-color: var(--primary-color);
+  transition: 1s;
+}
+.test2{
+  left: 0;
+  position: absolute;
+  background-color: white;
+  transition: 1s;
+}
+
+.u{
+  font-weight: 400;
+  font-style: italic;
+  font-family: Palatino,Georgia,Times New Roman,Times,serif;
+}
+.title-title2{
+  font-size: var(--fontb);
+  color: #988e9f;
+  padding: 0;
+  margin: 0;
+  font-weight: 300;
+}
+.back{
+  background-image: linear-gradient(-180deg,#1a1527,#0e0c16 88%,#0e0c16 99%);
+}
+.work{
+  width: 100vw;
+  /* background-color: #1a1527; */
+  height: 100vh;
+  padding-left:20% ;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.work-holder{
+  display: flex;
+  flex-direction: column;
+}
+.new1{
+  font-size: var(--fontab);
+  font-weight: 700;
+  z-index: 2;
+}
+.work:before {
+    color: #221d35;
+    content: "WEB";
+    font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
+    font-size: 270px;
+    font-weight: 700;
+    position: absolute;
+    right: 10px;
+    top: 110vh;
+    box-sizing: border-box;
+}
+#lab{
+  width: 100vw;
+  /* background-color: #1a1527; */
+  height: 100vh;
+  padding-left:20% ;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.lab-desc{
+  font-size: var(--fontc);
+  color: #F9F9F9;
+  font-weight: 500;
+}
+.grid-holder{
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+
+}
+.gridbox{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.gridh{
+  margin: 0;
+  padding: 0;
+  font-size: var(--fontab);
+  color: #302a4b;
+}
+.grid-items{
+  margin: 0;
+  padding: 0;
+  font-size: var(--fontf);
+  color: #FFFFFF;
+  font-weight: 300;
+  font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.grid-items:hover{
+  margin-left: 15px;
+  color: #5918df;
+}
+.yellow{color: #EEFF31;}
+.purple{color: #5918DF;}
+.red{color: #E3244C;}
+.grassgreen{color: #24E394;}
+.green{color:#24E33A ;}
+.orange{color: #E39D24;}
+.white{color: #F9F9F9;}
+.grey{color: #78707E;}
+.dots{color: #3B3553;}
+
+#about{
+  background-color: #1a1527;
+  width: 100vw;
+  height: 100vh;
+  padding-left:20% ;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+}
+
+.code{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 40px;
+  
+  font-weight: 400;
+  font-size: var(--fonte);
+  font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
+  counter-reset: line-number;
+}
+.code > *{
+  font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
+  width: 100%;
+  padding-left: calc(20% + 30px);
+  padding-top: 3px;
+  padding-bottom: 3px;
+  transition: 00.25s;
+  counter-increment: line-number;
+}
+.code > *:hover{
+  background-color: #212529;
+}
+.code > * >*{
+  font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
+}
+.code1::before{
+  box-sizing: border-box;
+  /* content: "01"; */
+  content: counter(line-number, decimal-leading-zero);
+  left: 17%;
+  position: absolute;
+  color:#3B3553 ;
+}
+#contact{
+  background-color: #0e0c16;
+  width: 100vw;
+  height: 100vh;
+  padding-left:20% ;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.contact-holder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 25px;
+}
+.contact-holder-2{
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-column-gap: 15px;
+}
+.contact-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.contact-logo{
+  color: #5918df;
+}
+.contact-desc{
+  color: #5918df;
+  text-decoration: none;
+  font-size: var(--fontd);
+}
+@keyframes onHoverAnimation {
+  0% {
+      background-color: #5918df;
+      box-shadow: 0 0 35px #5918df  
+  }
+  40% {
+    background-color:#ff3d77;
+    box-shadow: 0 0 35px #ff3d77
+  }
+  65% {
+    background-color: #1593e3;
+    box-shadow: 0 0 35px #1593e3
+  }
+  100% {
+      background-color: #ffa63d;
+      box-shadow: 0 0 35px #ffa63d
+  }
+}
+.emailme{
+  border: none;
+  border-radius: 50px;
+  color: hsla(0,0%,100%,.9);
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px #5918df;
+  width: 150px;
+  height: 50px;
+  background-color: #5918df;
+  transition: 00.25s;
+/* only animation-duration here is required, rest are optional (also animation-name but it will be set on hover)*/
+animation-duration: 6s; /* same as transition duration */
+animation-timing-function: linear; /* kind of same as transition timing */
+animation-delay: 0ms; /* same as transition delay */
+animation-iteration-count: infinite; /* set to 2 to make it run twice, or Infinite to run forever!*/
+animation-direction: alternate; /* can be set to "alternate" to run animation, then run it backwards.*/
+animation-fill-mode: none; /* can be used to retain keyframe styling after animation, with "forwards" */
+animation-play-state: running; /* can be set dynamically to pause mid animation*/
+}
+.emailme:hover {
+  animation-name: onHoverAnimation;
+  transform: scale(1.2);
+}
+.small{
+  height: fit-content;
+  color: #988e9f;
+  font-size: 15px;
+  font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
+  margin-bottom: 15px;
+}
+.cursor{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  border: solid 2px black;
+  position: absolute;
+  pointer-events: auto;
+  z-index: 99;
+}
+.cursor-border{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: solid 3px white;
+  position: absolute;
+  pointer-events: auto;
+  z-index: 99;
+  transition: width 0.5s, height 0.5s;
+}
+.hovered{
+  width: 50px;
+  height: 50px;
+}
+
+#welcome{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--primary-color);
+  /* background-color: #0e0c16; */
+}
+.load-screen{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #0e0c16;
+  transition: 1s;
+}
+.load-screen-holder{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+.loading{
+  text-transform: uppercase;
+  font-size: var(--fontb);
+  color: var(--primary-color);
+  letter-spacing: 2px;
+  padding-right: 15px;
+}
+.rem-screen{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--primary-color);
+  transition: 1s;
+}
+.rem-name{
+  padding-left: 15px;
+  color: #0e0c16;
+  text-transform: uppercase;
+  font-size: var(--fontb);
+  letter-spacing: 2px;
+}
+.diam{
+  background-color: #0e0c16;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.diam-name{
+  color: var(--primary-color);
+  font-size: var(--fonta);
+  font-weight: 700!important;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+.diam-desc{
+  color: white;
+  font-size: var(--fontc);
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+.anima{
+  transition:2s;
+  background-color: #221d35;
+  position: absolute;
+}
+@keyframes rotation {
+0% {
     transform: rotate(0deg);
+    width: 13px;
+    height: 13px;
   }
-  to {
-    transform: rotate(360deg);
+  50%{
+    width: 27px;
+    height: 27px;
   }
+  100% {
+    transform: rotate(359deg);
+    width: 13px;
+    height:13px;
+  }
+}
+.rotate {
+  background-color: var(--primary-color);
+  animation: rotation 3.5s infinite linear;
+}
+.timer{
+  position: absolute;
+  bottom: 25px;
+  padding: 5px 10px;
+  font-size: var(--fontg);
+  color: white;
+  border:solid 1px white
 }
