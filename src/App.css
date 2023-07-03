@@ -130,15 +130,6 @@ nav:hover{
   flex-direction: row;
   gap: 20px;
 }
-
-.section-title{
-  color: #988e9f;
-  font-size: var(--fontd);
-  margin: 0;
-  padding: 0;
-  margin-top: -5px;
-  font-weight: 300;
-}
 .titleholder{
   display: flex;
   flex-direction: column;
@@ -148,6 +139,15 @@ nav:hover{
   color: white;
   font-size: var(--fonta);
   font-weight: 700;
+  display: inline;
+}
+.hack{
+  margin: 0;
+  padding: 0;
+  display: inline;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
 .uh{
   color: var(--primary-color);
@@ -163,6 +163,22 @@ nav:hover{
   position: absolute;
   background-color: white;
   transition: 1s;
+}
+.test3{
+  background-color: white;
+  transition: 1s;
+  position: absolute;
+}
+.section-title{
+  width: 100px;
+  position: relative;
+  transition: 1s;
+  color: #988e9f;
+  font-size: var(--fontd);
+  margin: 0;
+  padding: 0;
+  margin-top: -5px;
+  font-weight: 300;
 }
 
 .u{

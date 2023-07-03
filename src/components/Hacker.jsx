@@ -1,15 +1,38 @@
 import React, { useState, useEffect } from 'react';
 
-const HackerEffect = ({ initialText }) => {
-
-
-
+const HackerEffect = () => {
+  const arrayText = ["Webs..","Mobile","React.","UIUX","Node.."]
+  const [index2,setIndex2] = useState(0)
+  const [initialText,setText] = useState(arrayText[index2]);
   const [currentText, setCurrentText] = useState(initialText);
   let interval = null;
 
-  const letters = 'ABCDEFGHI!@#JKLMNOP$%^QRSTUV&*(W+=X``~YZ';
+  function myFunction(){
+    setIndex2((prevCount) => {
+      if (prevCount === 4) {
+        return 0;
+      } else {
+        return prevCount + 1;
+      }
+    });}
+  
+  useEffect(() => {
+    setText(arrayText[index2]);
+    console.log((arrayText[index2]));
+  }, [arrayText, index2]);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      myFunction();
+    }, 6000);
+  
+    return () => clearInterval(interval);
+  }, []);
 
-  const startAnimation = (event) => {
+
+  const letters = 'ABCDEFGHI!@#JKLMNOP$%^Q:"<>?;RSTUV&*(W+=X``~YZ';
+
+  const startAnimation = () => {
     let iteration = 0;
 
     clearInterval(interval);
@@ -20,19 +43,19 @@ const HackerEffect = ({ initialText }) => {
           .split('')
           .map((letter, index) => {
             if (index < iteration) {
-              return event.target.dataset.value[index];
+              return initialText[index];
             }
             return letters[Math.floor(Math.random() * 26)];
           })
           .join('')
       );
 
-      if (iteration >= event.target.dataset.value.length) {
+      if (iteration >= initialText.length) {
         clearInterval(interval);
       }
 
       iteration += 1 / 3;
-    }, 50);
+    }, 40);
   };
 
   const stopAnimation = () => {
@@ -40,17 +63,15 @@ const HackerEffect = ({ initialText }) => {
   };
 
   useEffect(() => {
+    startAnimation(); // Invoke the animation when the component renders
+
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [initialText]); // Empty dependency array to run the effect only once on initial render
 
   return (
-    <h1
-      onMouseOver={startAnimation}
-      onMouseOut={stopAnimation}
-      data-value={initialText}
-    >
+    <h1 className='hack' data-value={initialText}>
       {currentText}
     </h1>
   );
