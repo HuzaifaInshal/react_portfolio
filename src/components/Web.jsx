@@ -9,7 +9,7 @@ import Cursor from './Cursor'
 
 
 
-const Web = () => {
+const Web = ({data,lab}) => {
 
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);

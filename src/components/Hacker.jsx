@@ -18,7 +18,6 @@ const HackerEffect = () => {
   
   useEffect(() => {
     setText(arrayText[index2]);
-    console.log((arrayText[index2]));
   }, [arrayText, index2]);
   
   useEffect(() => {

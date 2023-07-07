@@ -9,7 +9,7 @@ const Start = () => {
   const [sec,secTitle] = useState('');
 
   const [ref, inView] = useInView({
-    triggerOnce: true, // Animation triggers more than once,
+    triggerOnce: true, // Animation triggers no more than once,
   });
 
   useEffect(()=>{

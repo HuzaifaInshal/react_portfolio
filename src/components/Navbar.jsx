@@ -1,7 +1,16 @@
 import React from 'react'
+import { useState } from 'react'
 
 const Navbar = ({number,visible,onMouseEnter,onMouseLeave, onHover, onLeave}) => {
     number=Number(number)
+    const [current,setCurent] = useState()
+    const openNav =()=>{
+        console.log("clicked");
+        if(current==="flex"){
+            setCurent("none")
+        }else{
+        setCurent("flex")}
+    }
   return (
     <>
     <nav style={visible ? { height: "80px" } : {height: "0px" }} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -9,7 +18,7 @@ const Navbar = ({number,visible,onMouseEnter,onMouseLeave, onHover, onLeave}) =>
            <span className='logoSpan'>&lt;</span> <h1 className="logo">huzaifa</h1><span className='logoSpan'>/&gt;</span>
         </div>
 
-        <div className="linksHolder">
+        <div className="linksHolder" style={{display:current}}>
             <ul >
                 <li onMouseEnter={onHover} onMouseLeave={onLeave}>
                     <a  href="#start" className={`notactive ${number===0 ? 'active' : ''}`}>Start <span>/&gt;</span></a>
@@ -28,6 +37,7 @@ const Navbar = ({number,visible,onMouseEnter,onMouseLeave, onHover, onLeave}) =>
                 </li>
             </ul>
         </div>
+                <div className="openBtn"><a className='openBtn2' onClick={openNav}><i class="fa-sharp fa-solid fa-bars fa-2x"></i></a></div>
     </nav>
     </>
   )

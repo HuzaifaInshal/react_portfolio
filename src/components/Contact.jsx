@@ -3,7 +3,7 @@ import React from 'react'
 const Contact = () => {
   return (
     <section id="contact">
-          <div style={{"height":"100%"}} className="holder">
+          <div className="holder"style={{"height":"100%"}}>
           <div className="circle"></div>
           <div className="timeline"></div>
           </div>

@@ -3,11 +3,11 @@ import React from 'react'
 const About = () => {
   return (
     <section id="about">
-          <div style={{"height":"100%"}} className="holder">
+          <div style={{"height":"200%"}} className="holder">
           <div className="circle"></div>
           <div className="timeline"></div>
           </div>
-        <div className="work-holder">
+        <div className="about-holder">
         <h1 className="section-title">About /&gt;</h1>
         <div className="code">
               <div className="code1 purple">class <span className='yellow'>Huzaifa Inshal</span></div>

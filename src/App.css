@@ -11,11 +11,10 @@ html{
 }
 *{
   font-family: 'Roboto Condensed', sans-serif;
-  /* cursor: none; */
+  cursor: none;
 }
 body{
   overflow-x: hidden;
-  
 }
 :root{
   --primary-color:#5918df;
@@ -28,8 +27,35 @@ body{
   --fonte:18px;
   --fontf:16.5px;
   --fontg:14px;
-  --back:#5918df
-
+  --back:#5918df;
+  --gap:20%;
+}
+@media only screen and (max-width:800px){
+  :root{
+    --font:2.5rem;
+    --fonta:46px;
+    --fontab:28px;
+    --fontb:23px;
+    --fontc:20px;
+    --fontd:18px;
+    --fonte:16px;
+    --fontf:14.5px;
+    --fontg:12px;
+  }
+}
+@media only screen and (max-width:550px){
+  :root{
+    --font:2rem;
+    --fonta:43px;
+    --fontab:25px;
+    --fontb:20px;
+    --fontc:17px;
+    --fontd:15px;
+    --fonte:13px;
+    --fontf:11.5px;
+    --fontg:11px;
+    --gap:10%;
+  }
 }
 nav{
   display: flex;
@@ -37,7 +63,7 @@ nav{
   justify-content: center;
   align-items: center;
   justify-content: space-around;
-  z-index: 5;
+  z-index: 10;
   height: 80px;
   line-height: 80px;
   position: fixed;
@@ -96,10 +122,16 @@ nav:hover{
   justify-content: center;
   align-items: center;
   width: max-content;
-  /* position: absolute;
-  top: 20%;
-  left: 20%; */
+  height: 200%;
+  position: absolute;
+  /* top: 20%; */
+  left: calc(var(--gap) - 3%);
   z-index: 2;
+}
+@media only screen and (max-width:800px){
+  .holder{
+    height: 300%;
+  }
 }
 .timeline{
   width: 1px;
@@ -125,7 +157,7 @@ nav:hover{
   background-position: 50%;
 
   padding-top: calc(10% + 80px);
-  padding-left:20% ;
+  padding-left:var(--gap) ;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -148,6 +180,11 @@ nav:hover{
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
+}
+@media only screen and (max-width:650px){
+  .hack{
+    display: block;
+  }
 }
 .uh{
   color: var(--primary-color);
@@ -199,8 +236,8 @@ nav:hover{
 .work{
   width: 100vw;
   /* background-color: #1a1527; */
-  height: 100vh;
-  padding-left:20% ;
+  /* height: 100vh; */
+  padding-left:var(--gap) ;
   padding-top: 5%;
   display: flex;
   flex-direction: row;
@@ -209,6 +246,11 @@ nav:hover{
 .work-holder{
   display: flex;
   flex-direction: column;
+
+}@media only screen and (max-width:700px){
+  .work-holder{
+    padding-right: 20px;
+  }
 }
 .new1{
   font-size: var(--fontab);
@@ -229,9 +271,10 @@ nav:hover{
 #lab{
   width: 100vw;
   /* background-color: #1a1527; */
-  height: 100vh;
-  padding-left:20% ;
+  /* height: 50vh; */
+  padding-left:var(--gap) ;
   padding-top: 5%;
+  padding-bottom: 5%;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -244,7 +287,17 @@ nav:hover{
 .grid-holder{
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
-
+  grid-row-gap: 30px;
+}
+@media only screen and (max-width:1200px){
+  .grid-holder{
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+@media only screen and (max-width:750px){
+  .grid-holder{
+    grid-template-columns: repeat(1,minmax(0,1fr));
+  }
 }
 .gridbox{
   display: flex;
@@ -266,10 +319,30 @@ nav:hover{
   font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
   cursor: pointer;
   transition: 0.25s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
 }
 .grid-items:hover{
   margin-left: 15px;
   color: #5918df;
+}
+.grid-items-next{
+  position: absolute;
+  width: 0px;
+  right: 0;
+  /* display: none; */
+  transition: 0.3s;
+}
+.grid-items:hover > .grid-items-next{
+  /* display: block; */
+  width: 100px;
+}
+@media only screen and (max-width:750px){
+  .grid-items-next{
+    right: 20%;
+  }
 }
 .yellow{color: #EEFF31;}
 .purple{color: #5918DF;}
@@ -284,30 +357,47 @@ nav:hover{
 #about{
   background-color: #1a1527;
   width: 100vw;
-  height: 100vh;
-  padding-left:20% ;
+  height:100vh;
+  /* position: relative; */
+  padding-left:var(--gap);
   padding-top: 5%;
   display: flex;
   flex-direction: row;
   gap: 20px;
 
+}.about-holder{
+  display: flex;
+  flex-direction: column;
 }
-
 .code{
   position: absolute;
   left: 0;
   right: 0;
   margin-top: 40px;
-  
   font-weight: 400;
   font-size: var(--fonte);
   font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
   counter-reset: line-number;
 }
+@media only screen and (max-width:900px){
+  #about{
+    height: 120vh;
+  }
+}
+@media only screen and (max-width:800px){
+  #about{
+    height: 150vh;
+  }
+}
+@media only screen and (max-width:420px){
+  #about{
+    height: 180vh;
+  }
+}
+
 .code > *{
   font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
-  width: 100%;
-  padding-left: calc(20% + 30px);
+  padding-left: calc(var(--gap) );
   padding-top: 3px;
   padding-bottom: 3px;
   transition: 00.25s;
@@ -323,7 +413,7 @@ nav:hover{
   box-sizing: border-box;
   /* content: "01"; */
   content: counter(line-number, decimal-leading-zero);
-  left: 17%;
+  left: calc(var(--gap) - 7%);
   position: absolute;
   color:#3B3553 ;
 }
@@ -331,7 +421,7 @@ nav:hover{
   background-color: #0e0c16;
   width: 100vw;
   height: 100vh;
-  padding-left:20% ;
+  padding-left:var(--gap) ;
   padding-top: 5%;
   display: flex;
   flex-direction: row;
@@ -347,7 +437,18 @@ nav:hover{
 .contact-holder-2{
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
-  grid-column-gap: 15px;
+  grid-column-gap: 30px;
+}
+@media only screen and (max-width:950px){
+  .contact-holder-2{
+    grid-column-gap: 15px;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+@media only screen and (max-width:630px){
+  .contact-holder-2{
+    grid-template-columns: repeat(1,minmax(0,1fr));
+  }
 }
 .contact-box{
   display: flex;
@@ -386,7 +487,7 @@ nav:hover{
   border: none;
   border-radius: 50px;
   color: hsla(0,0%,100%,.9);
-  font-size: 20px;
+  font-size: var(--fontc);
   line-height: 1;
   text-align: center;
   text-transform: uppercase;
@@ -404,6 +505,15 @@ animation-direction: alternate; /* can be set to "alternate" to run animation, t
 animation-fill-mode: none; /* can be used to retain keyframe styling after animation, with "forwards" */
 animation-play-state: running; /* can be set dynamically to pause mid animation*/
 }
+@media only screen and (max-width:800px){
+  .contact-holder{
+    justify-content: flex-start;
+  }
+  .emailme{
+    width: 130px;
+    height: 30px;
+  }
+}
 .emailme:hover {
   animation-name: onHoverAnimation;
   transform: scale(1.2);
@@ -411,7 +521,7 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
 .small{
   height: fit-content;
   color: #988e9f;
-  font-size: 15px;
+  font-size: var(--fontg);
   font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
   margin-bottom: 15px;
 }
@@ -423,7 +533,7 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   border: solid 2px black;
   position: absolute;
   pointer-events: auto;
-  z-index: 99;
+  z-index: 15;
 }
 .cursor-border{
   width: 20px;
@@ -433,7 +543,7 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   border: solid 3px white;
   position: absolute;
   pointer-events: auto;
-  z-index: 99;
+  z-index: 15;
   transition: width 0.5s, height 0.5s;
 }
 .hovered{
@@ -547,4 +657,81 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   font-size: var(--fontg);
   color: white;
   border:solid 1px white
+}
+.webHolder{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.webHolder2{
+  margin-left: 35px;
+  height: max-content;
+  width: max-content;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+  height: 230px;
+  width: 410px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.webHolder2::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: rgb(0,1,1);
+background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100%);
+  position: absolute;
+}
+.wor-tits,.wor-tits2{
+  margin-left: -35px;
+  color: white;
+  z-index: 6;
+}
+.line-break{
+  margin-left: -35px;
+  color: white;
+  background-color: white;
+  height: 4px;
+  width: 75px;
+  z-index: 6;
+}
+.gameHolder{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 150px;
+}
+.gameHolder:before {
+  color: #221d35d9;
+  content: "GAME";
+  font-family: 'Roboto Mono',Courier New,Courier,monospace!important;
+  font-size: 170px;
+  font-weight: 700;
+  position: absolute;
+  left: 100px;
+  top: 0;
+  margin-top: -200px;
+  box-sizing: border-box;
+}
+.openBtn2{
+  color: white;
+}
+.openBtn{
+  display: none;
+}
+@media only screen and (max-width:750px){
+  .openBtn{
+    display: block;
+  }
+  .linksHolder{
+    display: none;
+  }
 }
