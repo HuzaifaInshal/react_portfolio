@@ -1,25 +1,37 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 const Navbar = ({number,visible,onMouseEnter,onMouseLeave, onHover, onLeave}) => {
     number=Number(number)
-    const [current,setCurent] = useState()
-    const openNav =()=>{
-        console.log("clicked");
-        if(current==="flex"){
-            setCurent("none")
-        }else{
-        setCurent("flex")}
+    const [show,setShow] = useState({display:"none"})
+
+  const openNav =()=>{
+      setShow({display:"flex"})
     }
+    const closeNav =()=>{
+      setShow({display:"none"})
+
+  }
+
   return (
     <>
+
+    <div className="over" style={show} onClick={closeNav}>
+    <div className="openBtn"><a className='openBtn2 cross' onClick={closeNav}><i class="fa-solid fa-x "></i></a></div>    
+    <a  href="#start" className={`notactive ${number===0 ? 'active' : ''}`}>Start <span>/&gt;</span></a>
+    <a  href="#work" className={`notactive ${number===1 ? 'active' : ''}`}>Work <span>/&gt;</span></a>
+    <a  href="#lab" className={`notactive ${number===2 ? 'active' : ''}`}>Lab <span>/&gt;</span></a>
+    <a  href="#about" className={`notactive ${number===3 ? 'active' : ''}`}>About <span>/&gt;</span></a>
+    <a  href="#contact" className={`notactive ${number===4 ? 'active' : ''}`}>Contact <span>/&gt;</span></a>
+
+    </div>
     <nav style={visible ? { height: "80px" } : {height: "0px" }} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <div className="logoHolder" onMouseEnter={onHover} onMouseLeave={onLeave}>
            <span className='logoSpan'>&lt;</span> <h1 className="logo">huzaifa</h1><span className='logoSpan'>/&gt;</span>
         </div>
 
-        <div className="linksHolder" style={{display:current}}>
-            <ul >
+        <div className="linksHolder">
+            <ul>
                 <li onMouseEnter={onHover} onMouseLeave={onLeave}>
                     <a  href="#start" className={`notactive ${number===0 ? 'active' : ''}`}>Start <span>/&gt;</span></a>
                 </li>

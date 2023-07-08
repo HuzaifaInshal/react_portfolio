@@ -1,8 +1,40 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { data } from '../work'
 
 
 const Work = () => {
+  const [rotations, setRotations] = useState([]);
+
+  const handleMouseEnter = (index) => {
+    setRotations((prevRotations) => {
+      const updatedRotations = [...prevRotations];
+      updatedRotations[index] = { offsetX: 0, offsetY: 0 };
+      return updatedRotations;
+    });
+  };
+
+  const handleMouseMove = (index, e) => {
+    const cardItem = e.currentTarget.querySelector(".card-item");
+    const force = 5;
+    const offsetY = -(e.nativeEvent.offsetY - cardItem.offsetHeight / 2) / force;
+    const offsetX = (e.nativeEvent.offsetX - cardItem.offsetWidth / 2) / force;
+
+    setRotations((prevRotations) => {
+      const updatedRotations = [...prevRotations];
+      updatedRotations[index] = { offsetX, offsetY };
+      return updatedRotations;
+    });
+  };
+
+  const handleMouseLeave = (index) => {
+    setRotations((prevRotations) => {
+      const updatedRotations = [...prevRotations];
+      updatedRotations[index] = { offsetX: 0, offsetY: 0 };
+      return updatedRotations;
+    });
+  };
+
+
   return (
     <section id='work' className="work">
             <div style={{"height":"300%"}} className="holder">
@@ -15,7 +47,9 @@ const Work = () => {
           <div className="webHolder">
             {data.map((single)=>{
               if(single.target==="web"){
-              return(<a href={single.link}><div className="webHolder2" style={{ backgroundImage: `url(${single.image})` }}>
+              return(<a key={single.id} className="reduce card" href={single.link} onMouseEnter={() => handleMouseEnter(single.id)}
+              onMouseMove={(e) => handleMouseMove(single.id, e)}
+              onMouseLeave={() => handleMouseLeave(single.id)}><div className="card-item" style={{ backgroundImage: `url(${single.image})` ,  transform: `rotateX(${rotations[single.map]?.offsetY/2 || 0}deg) rotateY(${rotations[single.id]?.offsetX/2 || 0}deg)`}}>
                 <h1 className="wor-tits">{single.name}</h1>
                 <div className="line-break"></div>
                 <h1 className="wor-tits2">{single.id}</h1>
@@ -27,7 +61,9 @@ const Work = () => {
           <div className="gameHolder">
           {data.map((single)=>{
               if(single.target==="game"){
-              return(<a href={single.link}><div className="webHolder2" style={{ backgroundImage: `url(${single.image})` }}>
+              return(<a key={single.id} className="reduce card" href={single.link} onMouseEnter={() => handleMouseEnter(single.id)}
+              onMouseMove={(e) => handleMouseMove(single.id, e)}
+              onMouseLeave={() => handleMouseLeave(single.id)}><div className="card-item" style={{ backgroundImage: `url(${single.image})` ,  transform: `rotateX(${rotations[single.map]?.offsetY/2 || 0}deg) rotateY(${rotations[single.id]?.offsetX/2 || 0}deg)`}}>
                 <h1 className="wor-tits">{single.name}</h1>
                 <div className="line-break"></div>
                 <h1 className="wor-tits2">{single.id}</h1>

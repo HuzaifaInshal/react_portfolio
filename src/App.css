@@ -11,7 +11,7 @@ html{
 }
 *{
   font-family: 'Roboto Condensed', sans-serif;
-  cursor: none;
+  /* cursor: none; */
 }
 body{
   overflow-x: hidden;
@@ -665,13 +665,14 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   margin-top: 25px;
 }
 
-.webHolder2{
+.card-item{
   margin-left: 35px;
   height: max-content;
   width: max-content;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+	transition: transform .2s;
   /* background-attachment: fixed; */
   height: 230px;
   width: 410px;
@@ -680,8 +681,10 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   flex-direction: column;
   justify-content: center;
   position: relative;
+  pointer-events: auto;
+  cursor: pointer;
 }
-.webHolder2::before {
+.card-item::before {
   content: "";
   height: 100%;
   width: 100%;
@@ -721,11 +724,14 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   margin-top: -200px;
   box-sizing: border-box;
 }
-.openBtn2{
+.openBtn2:hover{
   color: white;
 }
 .openBtn{
   display: none;
+}
+.openBtn2{
+  color: #494949;
 }
 @media only screen and (max-width:750px){
   .openBtn{
@@ -735,3 +741,50 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
     display: none;
   }
 }
+.reduce{
+  text-decoration: none;
+  color: inherit;
+}
+.over{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  position: fixed;
+  background-color: black;
+  z-index: 16;
+}
+.cross{
+  position: absolute;
+  right: 50px;
+  top: 35px;
+}
+
+.container{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 100vh;
+	background-color: #ffb376;
+}
+
+.card{
+	perspective: 350px;
+	transform-style: preserve-3d;
+}
+
+/* .card-item{
+	height: 350px;
+	width: 350px;
+	background-color: #24E33A;
+	transition: transform .2s;
+}
+
+.card-item > img{
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+} */

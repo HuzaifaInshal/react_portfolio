@@ -16,7 +16,7 @@ const Lab = () => {
           <h1 className="gridh">Static Sites</h1>
           {lab.map((single)=>{
               if(single.target==="static"){
-              return(<h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2>)
+              return(<a className='reduce' href={single.link}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2></a>)
               }
             })}
         </div>
@@ -24,7 +24,7 @@ const Lab = () => {
           <h1 className="gridh">Data Dashboards</h1>
           {lab.map((single)=>{
               if(single.target==="dashboard"){
-              return(<h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2>)
+              return(<a className='reduce' href={single.link}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2></a>)
               }
             })}
         </div>
@@ -32,7 +32,7 @@ const Lab = () => {
           <h1 className="gridh">Jupyter Snaps</h1>
           {lab.map((single)=>{
               if(single.target==="jupyter snippets"){
-              return(<h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2>)
+              return(<a className='reduce' href={single.link}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2></a>)
               }
             })}
         </div>
