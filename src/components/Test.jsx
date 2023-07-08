@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import image from "./ytmusic.png"
 
 const CardComponent = () => {
   const [rotation, setRotation] = useState({ offsetX: 0, offsetY: 0 });
