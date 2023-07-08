@@ -416,7 +416,7 @@ nav:hover{
 }
 @media only screen and (max-width:550px){
   .code1::before{
-    left:calc(var(--gap) - 5%)
+    left:calc(var(--gap) - 9%)
   }
 }
 #contact{
@@ -711,7 +711,7 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   background-color: white;
   height: 4px;
   width: 75px;
-  z-index: 6;
+  z-index: 16;
 }
 .gameHolder{
   position: relative;
@@ -731,6 +731,11 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   top: 0;
   margin-top: -200px;
   box-sizing: border-box;
+}
+@media only screen and (max-width:550px){
+  .gameHolder:before{
+    left: 550px;
+  }
 }
 .openBtn2:hover{
   color: white;
@@ -784,15 +789,3 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
 	transform-style: preserve-3d;
 }
 
-/* .card-item{
-	height: 350px;
-	width: 350px;
-	background-color: #24E33A;
-	transition: transform .2s;
-}
-
-.card-item > img{
-	height: 100%;
-	width: 100%;
-	max-width: 100%;
-} */
