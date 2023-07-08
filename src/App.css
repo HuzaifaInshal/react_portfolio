@@ -688,8 +688,8 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
 }
 @media only screen and (max-width:550px){
   .card-item{
-    height: 130;
-    width: 310px;
+    height: 130px;
+    width: 280px;
   }
 }
 .card-item::before {
