@@ -4,6 +4,7 @@
 html,body{
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   
 }
 html{
@@ -11,7 +12,7 @@ html{
 }
 *{
   font-family: 'Roboto Condensed', sans-serif;
-  /* cursor: none; */
+  cursor: none;
 }
 body{
   overflow-x: hidden;
@@ -45,7 +46,7 @@ body{
 }
 @media only screen and (max-width:550px){
   :root{
-    --font:2rem;
+    --font:1.8rem;
     --fonta:43px;
     --fontab:25px;
     --fontb:20px;
@@ -54,7 +55,7 @@ body{
     --fonte:13px;
     --fontf:11.5px;
     --fontg:11px;
-    --gap:10%;
+    --gap:12%;
   }
 }
 nav{
@@ -131,6 +132,11 @@ nav:hover{
 @media only screen and (max-width:800px){
   .holder{
     height: 300%;
+  }
+}
+@media only screen and (max-width:550px){
+  .holder{
+    left:calc(var(--gap) - 5%)
   }
 }
 .timeline{
@@ -357,7 +363,7 @@ nav:hover{
 #about{
   background-color: #1a1527;
   width: 100vw;
-  height:100vh;
+  height:110vh;
   /* position: relative; */
   padding-left:var(--gap);
   padding-top: 5%;
@@ -386,12 +392,7 @@ nav:hover{
 }
 @media only screen and (max-width:800px){
   #about{
-    height: 150vh;
-  }
-}
-@media only screen and (max-width:420px){
-  #about{
-    height: 180vh;
+    height: 140vh;
   }
 }
 
@@ -683,6 +684,12 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   position: relative;
   pointer-events: auto;
   cursor: pointer;
+}
+@media only screen and (max-width:550px){
+  .card-item{
+    height: 130;
+    width: 310px;
+  }
 }
 .card-item::before {
   content: "";
