@@ -142,7 +142,7 @@ const Welcome = () => {
         </div>
         }
         <div className="rem-screen" style={remScreen}>
-            <h1 className={`rem-name animate__animated ${aclass}`}>{text}</h1>
+           <h1 className={`rem-name animate__animated ${aclass}`}>{text}</h1>
         </div>
     </section>
   )

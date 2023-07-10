@@ -609,6 +609,7 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   align-items: center;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 .diam-name{
   color: var(--primary-color);
