@@ -802,6 +802,7 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   display: flex;
   align-items: center;
   width: 53px;
+  text-decoration: none;
 }
 .downloadBox{ 
   display: flex;

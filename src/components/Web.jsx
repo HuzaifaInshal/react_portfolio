@@ -106,7 +106,7 @@ const Web = ({data,lab}) => {
 
   return (
     <>
-    <div className='download'><div className="downloadBox">get cv</div></div>
+    <a href='https://huzaifa123.pythonanywhere.com/files/cv/Huzaifas_Resume.pdf'  target='_blank' className='download'><div className="downloadBox">get cv</div></a>
     <Cursor isHovered={isHovered}/>
     <Navbar number={visibleHeadingIndex} visible={isVisible} onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave} onHover={handleHover} onLeave={handleLeave}/>
