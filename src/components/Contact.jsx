@@ -37,7 +37,7 @@ const Contact = () => {
             <p className="contact-desc">Huzaifa</p>
           </a>
         </div>
-        <button className="emailme" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Email Me</button>
+        <button className="emailme" onClick={() => window.location = 'mailto:huzaifainshal@gmail.com'}>Email Me</button>
         </div>
         <div className='small'>© Made with &lt;/&gt; by Huzaifa. Circa 2023.</div>
         </div>

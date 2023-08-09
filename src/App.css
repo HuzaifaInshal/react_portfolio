@@ -745,6 +745,7 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
 @media only screen and (max-width:550px){
   .gameHolder:before{
     left: 0px;
+    margin-left: -30px;
   }
 }
 .openBtn2:hover{
