@@ -16,6 +16,7 @@ html{
 }
 body{
   overflow-x: hidden;
+  background-color: #1a1527;
 }
 :root{
   --primary-color:#5918df;
@@ -363,7 +364,7 @@ nav:hover{
 #about{
   background-color: #1a1527;
   width: 100vw;
-  height:110vh;
+  height:120vh;
   /* position: relative; */
   padding-left:var(--gap);
   padding-top: 5%;
@@ -387,7 +388,7 @@ nav:hover{
 }
 @media only screen and (max-width:900px){
   #about{
-    height: 120vh;
+    height: 130vh;
   }
 }
 
@@ -547,6 +548,11 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   pointer-events: auto;
   z-index: 15;
   transition: width 0.5s, height 0.5s;
+}
+@media only screen and (max-width:450px){
+  .cursor,.cursor-border{
+    display: none;
+  }
 }
 .hovered{
   width: 50px;
@@ -735,7 +741,7 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
 }
 @media only screen and (max-width:550px){
   .gameHolder:before{
-    left: 550px;
+    left: 0px;
   }
 }
 .openBtn2:hover{
@@ -789,4 +795,34 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
 	perspective: 350px;
 	transform-style: preserve-3d;
 }
+.download{
+  right: 0;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  width: 53px;
+}
+.downloadBox{ 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* height: 300px; */
+  padding: 15px 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  /* letter-spacing: 5px; */
+  writing-mode: vertical-rl; 
+  text-orientation: upright; 
+  white-space: nowrap;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.downloadBox:hover{
+  border-radius: 25px 0 0 25px;
+  transform: scale(1.3);
 
+}

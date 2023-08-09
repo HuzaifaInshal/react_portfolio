@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const HackerEffect = () => {
-  const arrayText = ["Webs..","Mobile","React.","UIUX","Node.."]
+  const arrayText = ["Webs..","Mobile","React.","UIUX...","Node.."]
   const [index2,setIndex2] = useState(0)
   const [initialText,setText] = useState(arrayText[index2]);
   const [currentText, setCurrentText] = useState(initialText);

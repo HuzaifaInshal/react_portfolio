@@ -97,7 +97,7 @@ const Welcome = () => {
       }, []);
     useEffect(() => {
         const timer = setTimeout(() => {
-            setAnima({width: '500px',height: '500px',transform:'rotate(45deg)',opacity:'0.25'})
+            setAnima({width: '500px',height: '500px',transform:'rotate(45deg)',opacity:'0.4'})
             setShowTimer(true)
             setTime('3')
         }, 13900);

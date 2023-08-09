@@ -106,6 +106,7 @@ const Web = ({data,lab}) => {
 
   return (
     <>
+    <div className='download'><div className="downloadBox">get cv</div></div>
     <Cursor isHovered={isHovered}/>
     <Navbar number={visibleHeadingIndex} visible={isVisible} onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave} onHover={handleHover} onLeave={handleLeave}/>
