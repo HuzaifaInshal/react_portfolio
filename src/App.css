@@ -158,6 +158,7 @@ nav:hover{
 .start{
   height: calc(100vh - 80px);
   width: 100vw;
+  background-color: #1a1527;
   background-image: url('../public/assets/back.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -575,6 +576,7 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   justify-content: flex-end;
   align-items: center;
   background-color: #0e0c16;
+  overflow: hidden;
   transition: 1s;
 }
 .load-screen-holder{
@@ -599,6 +601,7 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   align-items: center;
   background-color: var(--primary-color);
   transition: 1s;
+  overflow: hidden;
 }
 .rem-name{
   padding-left: 15px;
