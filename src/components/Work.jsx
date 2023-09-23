@@ -71,7 +71,7 @@ const Work = () => {
             {data.map((single)=>{
               if(single.target==="web"){
               return(<Tilt options={defaultOptions} key={single.id} className="reduce card" >
-                <a href={single.link} target='_blank'>
+                <a href={single.link} target='_blank' style={{textDecoration:"none"}}>
               <div className="card-item" style={{ backgroundImage: `url(${single.image})` }}>
                 <h1 className="wor-tits">{single.name}</h1>
                 <div className="line-break"></div>
@@ -96,7 +96,7 @@ const Work = () => {
             {data.map((single)=>{
               if(single.target==="game"){
               return(<Tilt options={defaultOptions} key={single.id} className="reduce card">
-                <a href={single.link} target='_blank'>
+                <a href={single.link} target='_blank' style={{textDecoration:"none"}}>
               <div className="card-item" style={{ backgroundImage: `url(${single.image})` }}>
                 <h1 className="wor-tits">{single.name}</h1>
                 <div className="line-break"></div>
