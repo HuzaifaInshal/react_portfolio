@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from 'react'
-import {lab} from '../lab'
 
-const Lab = () => {
+const Lab = ({lab}) => {
   return (
     <section id="lab">
 <div style={{"height":"200%"}} className="holder">
@@ -14,27 +13,27 @@ const Lab = () => {
       <div className="grid-holder">
         <div className="gridbox">
           <h1 className="gridh">Static Sites</h1>
-          {lab.map((single)=>{
+          {lab ? (lab.map((single)=>{
               if(single.target==="static"){
-              return(<a className='reduce' href={single.link}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2></a>)
+              return(<a target='_blank' className='reduce' href={`https://huzaifa123.pythonanywhere.com/project/${single.id}`}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={`https://huzaifa123.pythonanywhere.com${single.image_path}`}/></h2></a>)
               }
-            })}
+            })) : 'loading...'}
         </div>
         <div className="gridbox">
           <h1 className="gridh">Data Dashboards</h1>
-          {lab.map((single)=>{
+          {lab ?(lab.map((single)=>{
               if(single.target==="dashboard"){
-              return(<a className='reduce' href={single.link}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2></a>)
+              return(<a target='_blank' className='reduce' href={`https://huzaifa123.pythonanywhere.com/project/${single.id}`}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={`https://huzaifa123.pythonanywhere.com${single.image_path}`}/></h2></a>)
               }
-            })}
+            })): 'loading...'}
         </div>
         <div className="gridbox">
           <h1 className="gridh">Jupyter Snaps</h1>
-          {lab.map((single)=>{
+          {lab ?(lab.map((single)=>{
               if(single.target==="jupyter snippets"){
-              return(<a className='reduce' href={single.link}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={single.image}/></h2></a>)
+              return(<a target='_blank' className='reduce' href={`https://huzaifa123.pythonanywhere.com/project/${single.id}`}><h2 className='grid-items'>{single.name}<img className='grid-items-next' src={`https://huzaifa123.pythonanywhere.com${single.image_path}`}/></h2></a>)
               }
-            })}
+            })): 'loading...'}
         </div>
       </div>
   </div>

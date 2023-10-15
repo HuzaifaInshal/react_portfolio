@@ -10,7 +10,7 @@ import Cursor from './Cursor'
 
 
 const Web = ({data,lab}) => {
-
+  const [dataAPI,setData] = useState({})
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
 
@@ -103,6 +103,23 @@ const Web = ({data,lab}) => {
     setIsHovered(false);
   };
 
+  useEffect(()=>{
+    getData()
+ },[])
+
+ const getData = async()=>{
+   try {
+     const response = await fetch('https://huzaifa123.pythonanywhere.com/api/all-data/');
+   if (!response.ok) {
+     throw new Error('Network response was not ok');
+   }
+   const data1 = await response.json();
+   setData(data1)
+   } catch (error) {
+     console.error('Error fetching data:', error);
+   }
+ }
+
 
   return (
     <>
@@ -112,10 +129,10 @@ const Web = ({data,lab}) => {
         onMouseLeave={handleMouseLeave} onHover={handleHover} onLeave={handleLeave}/>
         <div ref={headingRefs[0]} data-index={0}><Start data-cursor="pointer"/></div>
         <div className="back">
-        <div ref={headingRefs[1]} data-index={1}><Work data-cursor="pointer2"/></div>
-        <div ref={headingRefs[2]} data-index={2}><Lab/></div>
+        <div ref={headingRefs[1]} data-index={1}><Work data-cursor="pointer2" data={dataAPI.Projects}/></div>
+        <div ref={headingRefs[2]} data-index={2}><Lab lab={dataAPI.Projects}/></div>
         </div>
-        <div ref={headingRefs[3]} data-index={3}><About/></div>
+        <div ref={headingRefs[3]} data-index={3}><About Work={dataAPI.Works} Cert={dataAPI.Certifications} Skills={dataAPI.SecondarySkills}/></div>
         <div ref={headingRefs[4]} data-index={4}><Contact/></div>
     </>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const About = () => {
+const About = ({Work,Cert,Skills}) => {
   return (
     <section id="about">
           <div style={{"height":"200%"}} className="holder">
@@ -17,13 +17,26 @@ const About = () => {
               <div className="code1 white"><span className="dots">....</span><span className="red">this</span>.<span className="grassgreen">name</span><span className="red"> = </span><span className="green">'Huzaifa Inshal'</span></div>
               <div className="code1 white"><span className="dots">....</span><span className="red">this</span>.<span className="grassgreen">email</span><span className="red"> = </span><span className="green">huzaifainshal@gmail.com</span></div>
               <div className="code1 white"><span className="dots">..</span>&#125;</div>
+
               <div className="code1 dots">..<span className="yellow">workExperience</span><span className="white">() &#123;</span></div>
               <div className="code1 purple"><span className="dots">....</span>return <span className="white">[</span></div>
-              <div className="code1 green"><span className="dots">......</span><span className="white">&#123; </span>'2022 - present'<span className="white"> : </span>'Web Development Instructor at Professionals Hub Institute'<span className="white"> &#125;</span></div>
-              <div className="code1 green"><span className="dots">......</span><span className="white">&#123; </span>'2 Months 2022'<span className="white"> : </span>'Internee at NCAI, NEDUET'<span className="white"> &#125;</span></div>
-              
+              {Work ? (
+                Work.map((single) => (
+                  <div className="code1 green" key={single.id}>
+                    <span className="dots">......</span>
+                    <span className="white">&#123; </span>
+                    {`'${single.duration}'`}
+                    <span className="white"> : </span>
+                    {`'${single.name}'`}
+                    <span className="white"> &#125;</span>
+                  </div>
+                ))
+              ) : 'loading...'}
+              {/* <div className="code1 green"><span className="dots">......</span><span className="white">&#123; </span>'2022 - present'<span className="white"> : </span>'Web Development Instructor at Professionals Hub Institute'<span className="white"> &#125;</span></div> */}
+              {/* <div className="code1 green"><span className="dots">......</span><span className="white">&#123; </span>'2 Months 2022'<span className="white"> : </span>'Internee at NCAI, NEDUET'<span className="white"> &#125;</span></div> */}
               <div className="code1 white"><span className="dots">....</span>]</div>
               <div className="code1 white"><span className="dots">..</span>&#125;</div>
+
               <div className="code1 yellow"><span className="dots">..</span>education<span className="white">() &#123;</span></div>
               <div className="code1 purple"><span className="dots">....</span>return<span className="white"> [</span></div>
                 <div className="code1 green"><span className="dots">......</span><span className="white">&#123; </span>'2020 ~ 2024'<span className="white"> : </span>'NED University of Engineering and Techonology, Computer and Information System Engineering (CIS)'<span className="white"> &#125;</span></div>
@@ -33,10 +46,32 @@ const About = () => {
               <div className="code1 yellow"><span className="dots">..</span>skills<span className="white">() &#123;</span></div>
               <div className="code1 green">
                 <span className="dots">....</span><span className="purple">return</span><span className="white"> [ </span>
-                  'Html/CSS', 'React', 'Node', 'Next', 'Express', 'Python', 'Redux' ,'MongoDb' ,'MySQL'
+                  {/* 'Html/CSS', 'React', 'Node', 'Next', 'Express', 'Python', 'Redux' ,'MongoDb' ,'MySQL' */}
+                  {Skills ? (
+                Skills.map((single) => (
+                  <>{single.name}, </>
+                ))
+              ) : 'loading...'}
                   <span className="white">   ]</span>
               </div>
               <div className="code1 white"><span className="dots">....</span>]</div>
+              <div className="code1 white"><span className="dots">..</span>&#125;</div>
+
+              <div className="code1 dots">..<span className="yellow">certifications</span><span className="white">() &#123;</span></div>
+              <div className="code1 purple"><span className="dots">....</span>return <span className="white">[</span></div>
+              {Work ? (
+                Cert.map((single,index) => (
+                  <div className="code1 green" key={single.id}>
+                    <span className="dots">......</span>
+                    <span className="white">&#123; </span>
+                    {`'${index + 1}'`}
+                    <span className="white"> : </span>
+                    {`'${single.name}'`}
+                    <span className="white"> &#125;</span>
+                  </div>
+                ))
+              ) : 'loading...'}
+                <div className="code1 white"><span className="dots">....</span>]</div>
               <div className="code1 white"><span className="dots">..</span>&#125;</div>
 
         </div>

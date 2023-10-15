@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import { data } from '../work'
 import { Tilt } from 'react-tilt'
 
 const defaultOptions = {
@@ -14,7 +13,9 @@ const defaultOptions = {
 	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
 }
 
-const Work = () => {
+const Work = ({data}) => {
+  let index = 1;
+
   // const [rotations, setRotations] = useState([]);
 
   // const handleMouseEnter = (index) => {
@@ -56,6 +57,7 @@ const Work = () => {
         <div className="work-holder">
         <h1 className="section-title">Work /&gt;</h1>
         <h1 className="title-title2 new1">Selected Web Mobile and other projects...</h1>
+
           <div className="webHolder">
             {/* {data.map((single)=>{
               if(single.target==="web"){
@@ -68,19 +70,35 @@ const Work = () => {
               </div></a>)
               }
             })} */}
-            {data.map((single)=>{
+            {data ? (data.map((single)=>{
               if(single.target==="web"){
               return(<Tilt options={defaultOptions} key={single.id} className="reduce card" >
-                <a href={single.link} target='_blank' style={{textDecoration:"none"}}>
-              <div className="card-item" style={{ backgroundImage: `url(${single.image})` }}>
+                <a href={`https://huzaifa123.pythonanywhere.com/project/${single.id}`} target='_blank' style={{textDecoration:"none"}}>
+              <div className="card-item" style={{ backgroundImage: `url( https://huzaifa123.pythonanywhere.com${single.image_path})` }}>
                 <h1 className="wor-tits">{single.name}</h1>
                 <div className="line-break"></div>
-                <h1 className="wor-tits2">{single.id}</h1>
+                <h1 className="wor-tits2">{index}</h1>
+                {index += 1}
               </div></a></Tilt>)
               }
-            })}
+            })) : 'loading'}
           </div>
-          {/* <div className="mobileHolder"></div> */}
+
+          <div className="threedholder">
+            {data ? (data.map((single)=>{
+              if(single.target==="3dweb"){
+              return(<Tilt options={defaultOptions} key={single.id} className="reduce card">
+                <a href={`https://huzaifa123.pythonanywhere.com/project/${single.id}`} target='_blank' style={{textDecoration:"none"}}>
+              <div className="card-item" style={{ backgroundImage: `url(https://huzaifa123.pythonanywhere.com${single.image_path})` }}>
+                <h1 className="wor-tits">{single.name}</h1>
+                <div className="line-break"></div>
+                <h1 className="wor-tits2">{index}</h1>
+                {index += 1}
+              </div></a></Tilt>)
+              }
+            })):'loading'}
+          </div>
+
           <div className="gameHolder">
           {/* {data.map((single)=>{
               if(single.target==="game"){
@@ -93,18 +111,20 @@ const Work = () => {
               </div></a>)
               }
             })} */}
-            {data.map((single)=>{
+            {data ? (data.map((single)=>{
               if(single.target==="game"){
               return(<Tilt options={defaultOptions} key={single.id} className="reduce card">
-                <a href={single.link} target='_blank' style={{textDecoration:"none"}}>
-              <div className="card-item" style={{ backgroundImage: `url(${single.image})` }}>
+                <a href={`https://huzaifa123.pythonanywhere.com/project/${single.id}`} target='_blank' style={{textDecoration:"none"}}>
+              <div className="card-item" style={{ backgroundImage: `url(https://huzaifa123.pythonanywhere.com${single.image_path})` }}>
                 <h1 className="wor-tits">{single.name}</h1>
                 <div className="line-break"></div>
-                <h1 className="wor-tits2">{single.id}</h1>
+                <h1 className="wor-tits2">{index}</h1>
+                {index += 1}
               </div></a></Tilt>)
               }
-            })}
+            })):'loading'}
           </div>
+
         </div>
     </section>
   )
