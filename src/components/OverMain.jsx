@@ -36,11 +36,6 @@ const OverMain = ({ data, count }) => {
             <div className='overlay overlay1' style={{ width: `${overlay1W}vw` }}></div>
             <div className='overlay overlay2' style={{ width: `${overlay2W}vw` }}></div>
             <div className='overlay overlay3' style={{ width: `${overlay3W}vw` }}>
-                <div className="overlayChild1">
-                    {data && data.mp4URL!=='' ? <VideoPlayer url={data.mp4URL}/> : ''}
-                    {data ? <img src={data.titlePictureURL} className='overlayTitlePic'/> : 'loading..'}
-                    {data && data.blogFlow!=='' ? <div className='overlayBlog' dangerouslySetInnerHTML={{ __html: data.blogFlow }}></div> : ''}
-                </div>
                 <div className="overlayChild2">
                     <button className='overlay_goBack' onClick={closeOverlay}><i class="fa-solid fa-arrow-left"></i></button>
                     <div className="hashtags">
@@ -66,6 +61,11 @@ const OverMain = ({ data, count }) => {
                                 <a href={each}><button className='emailme overlayBtn'>Check Live</button></a>
                             ))}
                         </> : ''}
+                </div>
+                <div className="overlayChild1">
+                    {data && data.mp4URL!=='' ? <VideoPlayer url={data.mp4URL}/> : ''}
+                    {data ? <img src={data.titlePictureURL} className='overlayTitlePic'/> : 'loading..'}
+                    {data && data.blogFlow!=='' ? <div className='overlayBlog' dangerouslySetInnerHTML={{ __html: data.blogFlow }}></div> : ''}
                 </div>
             </div>
         </>
