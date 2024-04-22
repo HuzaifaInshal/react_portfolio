@@ -12,7 +12,7 @@ const Contact = () => {
         <div className="contact-holder">
         <h1 className="lab-desc">Find me on...</h1>
         <div className="contact-holder-2">
-          <a className="contact-box" target="_blank" target="_blank" href='https://www.linkedin.com/in/huzaifa-inshal-b4a443279/'>
+          <a className="contact-box" target="_blank" href='https://www.linkedin.com/in/huzaifa-inshal-b4a443279/'>
             <a className="contact-logo"><i class="fa-brands fa-linkedin-in fa-2x"></i></a>
             <p className="contact-desc">ln/HuzaifaInshal</p>
           </a>

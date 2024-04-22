@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../Welcome.css'
 
 const Welcome = () => {
     const navigate = useNavigate();
@@ -118,15 +119,18 @@ const Welcome = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setTime('0')
-            navigate('/home');
+            navigate('/home');  
         }, 16900);
         return () => clearTimeout(timer);
          // eslint-disable-next-line
       }, []);
 
-
+      function skipIntro(){
+        navigate('/home');
+      }
   return (
     <section id="welcome">
+      <p className="skipIntro" onClick={skipIntro}>Click Here to Skip Intro</p>
         {!showDiam ? 
         <div className="load-screen" style={loadScreen}>
             <div className={`load-screen-holder animate__animated ${bclass}`}>

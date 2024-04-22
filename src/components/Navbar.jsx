@@ -17,7 +17,7 @@ const Navbar = ({number,visible,onMouseEnter,onMouseLeave, onHover, onLeave}) =>
     <>
 
     <div className="over" style={show} onClick={closeNav}>
-    <div className="openBtn"><a className='openBtn2 cross' onClick={closeNav}><i class="fa-solid fa-x "></i></a></div>    
+    <div className="openBtn"><a className='openBtn2 cross' onClick={closeNav}><i className="fa-solid fa-x "></i></a></div>    
     <a  href="#start" className={`notactive ${number===0 ? 'active' : ''}`}>Start <span>/&gt;</span></a>
     <a  href="#work" className={`notactive ${number===1 ? 'active' : ''}`}>Work <span>/&gt;</span></a>
     <a  href="#lab" className={`notactive ${number===2 ? 'active' : ''}`}>Lab <span>/&gt;</span></a>
@@ -49,7 +49,7 @@ const Navbar = ({number,visible,onMouseEnter,onMouseLeave, onHover, onLeave}) =>
                 </li>
             </ul>
         </div>
-                <div className="openBtn"><a className='openBtn2' onClick={openNav}><i class="fa-sharp fa-solid fa-bars fa-2x"></i></a></div>
+                <div className="openBtn"><a className='openBtn2' onClick={openNav}><i className="fa-sharp fa-solid fa-bars fa-2x"></i></a></div>
     </nav>
     </>
   )

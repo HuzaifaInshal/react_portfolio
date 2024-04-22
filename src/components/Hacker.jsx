@@ -23,13 +23,13 @@ const HackerEffect = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       myFunction();
-    }, 6000);
+    }, 2000);
   
     return () => clearInterval(interval);
   }, []);
 
 
-  const letters = 'ABCDEFGHI!@#JKLMNOP$%^Q:"<>?;RSTUV&*(W+=X``~YZ';
+  const letters = 'ABCDEFGHIRSTUVJKLMNOP!@#$%^Q:"<>?;&*(!@#$%^Q:"<>?;&*(W+=X``~YZ';
 
   const startAnimation = () => {
     let iteration = 0;

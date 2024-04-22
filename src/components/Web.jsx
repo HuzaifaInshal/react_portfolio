@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useRef} from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Navbar from './Navbar'
 import Start from './Start'
 import Work from './Work'
@@ -6,11 +6,13 @@ import Lab from './Lab'
 import About from './About'
 import Contact from './Contact'
 import Cursor from './Cursor'
+import '../Web.css'
 
 
-
-const Web = ({data,lab}) => {
-  const [dataAPI,setData] = useState({})
+const Web = () => {
+  const [dataAPI, setData] = useState()
+  const [display, setDisplay] = useState();
+  const [cv, setCV] = useState();
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
 
@@ -88,7 +90,7 @@ const Web = ({data,lab}) => {
     };
 
     window.addEventListener('beforeunload', resetVisibleHeading);
-    
+
 
     return () => {
       window.removeEventListener('beforeunload', resetVisibleHeading);
@@ -103,37 +105,43 @@ const Web = ({data,lab}) => {
     setIsHovered(false);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getData()
- },[])
+  }, [])
 
- const getData = async()=>{
-   try {
-     const response = await fetch('https://huzaifa123.pythonanywhere.com/api/all-data/');
-   if (!response.ok) {
-     throw new Error('Network response was not ok');
-   }
-   const data1 = await response.json();
-   setData(data1)
-   } catch (error) {
-     console.error('Error fetching data:', error);
-   }
- }
+  const getData = async () => {
+    try {
+      const response3 = await fetch('https://myportfoliodb-56c35-default-rtdb.asia-southeast1.firebasedatabase.app/HuzaifaResume.json')
+      const data3 = await response3.json();
+      setCV(data3)
+      const response1 = await fetch('https://myportfoliodb-56c35-default-rtdb.asia-southeast1.firebasedatabase.app/projects.json');
+      const data1 = await response1.json();
+      setData(data1)
+      const response2 = await fetch('https://myportfoliodb-56c35-default-rtdb.asia-southeast1.firebasedatabase.app/display.json')
+      const data2 = await response2.json();
+      setDisplay(data2)
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
 
 
   return (
     <>
-    <a href='https://huzaifa123.pythonanywhere.com/files/cv/Huzaifas_Resume.pdf'  target='_blank' className='download'><div className="downloadBox">get cv</div></a>
-    <Cursor isHovered={isHovered}/>
-    <Navbar number={visibleHeadingIndex} visible={isVisible} onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave} onHover={handleHover} onLeave={handleLeave}/>
-        <div ref={headingRefs[0]} data-index={0}><Start data-cursor="pointer"/></div>
-        <div className="back">
-        <div ref={headingRefs[1]} data-index={1}><Work data-cursor="pointer2" data={dataAPI.Projects}/></div>
-        <div ref={headingRefs[2]} data-index={2}><Lab lab={dataAPI.Projects}/></div>
-        </div>
-        <div ref={headingRefs[3]} data-index={3}><About Work={dataAPI.Works} Cert={dataAPI.Certifications} Skills={dataAPI.SecondarySkills}/></div>
-        <div ref={headingRefs[4]} data-index={4}><Contact/></div>
+      <a href={`${cv ? cv.data : ''}`} target='_blank' className='download'><div className="downloadBox">get cv</div></a>
+      <Cursor isHovered={isHovered} />
+      <Navbar number={visibleHeadingIndex} visible={isVisible} onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave} onHover={handleHover} onLeave={handleLeave} />
+      <div ref={headingRefs[0]} data-index={0}><Start data-cursor="pointer" /></div>
+      <div className="back">
+        {/* <div ref={headingRefs[1]} data-index={1}><Work data-cursor="pointer2" data={dataAPI.Projects} /></div> */}
+        <div ref={headingRefs[1]} data-index={1}><Work data-cursor="pointer2" data={dataAPI} /></div>
+        {/* <div ref={headingRefs[2]} data-index={2}><Lab lab={dataAPI.Projects} /></div> */}
+        <div ref={headingRefs[2]} data-index={2}><Lab lab={dataAPI} /></div>
+      </div>
+      {/* <div ref={headingRefs[3]} data-index={3}><About Work={dataAPI.Works} Cert={dataAPI.Certifications} Skills={dataAPI.SecondarySkills} /></div> */}
+      <div ref={headingRefs[3]} data-index={3}><About about={display}/></div>
+      <div ref={headingRefs[4]} data-index={4}><Contact /></div>
     </>
   )
 }

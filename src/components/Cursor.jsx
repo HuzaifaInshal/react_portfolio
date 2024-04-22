@@ -50,6 +50,7 @@ const CircleFollowCursor = ({isHovered }) => {
       style={{
         width: '100%',
         height: '100%',
+        zIndex:'999999',
         position: 'fixed',
         top: 0,
         left: 0,
