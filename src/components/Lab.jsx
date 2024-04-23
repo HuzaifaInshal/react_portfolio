@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import OverMain from './OverMain';
 
-const Lab = ({lab}) => {
+const Lab = ({lab,handleHover,handleLeave}) => {
   const [sentdata,setSentData] = useState()
   const [sentCount,setSentCount] = useState(1)
   function clickHanlder(dat){
@@ -27,7 +27,7 @@ const Lab = ({lab}) => {
               if(single===null){}
               else{
                 if(single.data.type.major==="lab" && single.data.isActive && single.data.type.minor==="static"){
-                return(<div className='reduce' onClick={()=>clickHanlder(single.data)} key={single.id}><h2 className='grid-items'>{single.data.title}<img className='grid-items-next' src={`${single.data.titlePictureURL}`}/></h2></div>)}
+                return(<div className='reduce' onMouseEnter={handleHover} onMouseLeave={handleLeave} onClick={()=>clickHanlder(single.data)} key={single.id}><h2 className='grid-items'>{single.data.title}<img className='grid-items-next' src={`${single.data.titlePictureURL}`}/></h2></div>)}
               }
             })) : 'loading...'}
 
@@ -43,7 +43,7 @@ const Lab = ({lab}) => {
               if(single===null){}
               else{
                 if(single.data.type.major==="lab" && single.data.isActive && single.data.type.minor==="dashboards"){
-                return(<div className='reduce' onClick={()=>clickHanlder(single.data)} key={single.id}><h2 className='grid-items'>{single.data.title}<img className='grid-items-next' src={`${single.data.titlePictureURL}`}/></h2></div>)}
+                return(<div className='reduce' onMouseEnter={handleHover} onMouseLeave={handleLeave} onClick={()=>clickHanlder(single.data)} key={single.id}><h2 className='grid-items'>{single.data.title}<img className='grid-items-next' src={`${single.data.titlePictureURL}`}/></h2></div>)}
               }
             })) : 'loading...'}
         </div>
@@ -53,7 +53,7 @@ const Lab = ({lab}) => {
               if(single===null){}
               else{
                 if(single.data.type.major==="lab" && single.data.isActive && single.data.type.minor==="jupyter"){
-                return(<div className='reduce' onClick={()=>clickHanlder(single.data)} key={single.id}><h2 className='grid-items'>{single.data.title}<img className='grid-items-next' src={`${single.data.titlePictureURL}`}/></h2></div>)}
+                return(<div className='reduce' onMouseEnter={handleHover} onMouseLeave={handleLeave} onClick={()=>clickHanlder(single.data)} key={single.id}><h2 className='grid-items'>{single.data.title}<img className='grid-items-next' src={`${single.data.titlePictureURL}`}/></h2></div>)}
               }
             })) : 'loading...'}
         </div>
@@ -63,7 +63,7 @@ const Lab = ({lab}) => {
               if(single===null){}
               else{
                 if(single.data.type.major==="lab" && single.data.isActive && single.data.type.minor==="other"){
-                return(<div className='reduce' onClick={()=>clickHanlder(single.data)} key={single.id}><h2 className='grid-items'>{single.data.title}<img className='grid-items-next' src={`${single.data.titlePictureURL}`}/></h2></div>)}
+                return(<div className='reduce' onMouseEnter={handleHover} onMouseLeave={handleLeave} onClick={()=>clickHanlder(single.data)} key={single.id}><h2 className='grid-items'>{single.data.title}<img className='grid-items-next' src={`${single.data.titlePictureURL}`}/></h2></div>)}
               }
             })) : 'loading...'}
         </div>

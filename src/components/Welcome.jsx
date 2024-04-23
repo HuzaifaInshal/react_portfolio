@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../Welcome.css'
+import Cursor from './Cursor'
 
 const Welcome = () => {
     const navigate = useNavigate();
@@ -14,10 +14,20 @@ const Welcome = () => {
     const [cclass,setClassc] = useState("")
     const [dclass,setClassd] = useState("")
     const [showTimer,setShowTimer] = useState(false)
+    const [topp,setTop] = useState('-20px')
     const [time,setTime]=useState('')
+
+    const [isHovered, setIsHovered] = useState(false);
+  const handleHover = () => {
+    setIsHovered(true);
+  };
+  const handleLeave = () => {
+    setIsHovered(false);
+  };
 
     useEffect(() => {
         const timer = setTimeout(() => {
+          setTop('15px')
             setLoadScreen({ width: '25vw'});
             setRemScreen({ width: '75vw'});
             setClass("animate__fadeInUpBig")
@@ -129,8 +139,11 @@ const Welcome = () => {
         navigate('/home');
       }
   return (
+    <>
+    <Cursor isHovered={isHovered} />
     <section id="welcome">
-      <p className="skipIntro" onClick={skipIntro}>Click Here to Skip Intro</p>
+      <p className="skipIntro" style={{marginTop:topp}} onClick={skipIntro} 
+      onMouseEnter={handleHover} onMouseLeave={handleLeave}>Click Here to Skip Intro</p>
         {!showDiam ? 
         <div className="load-screen" style={loadScreen}>
             <div className={`load-screen-holder animate__animated ${bclass}`}>
@@ -149,6 +162,7 @@ const Welcome = () => {
            <h1 className={`rem-name animate__animated ${aclass}`}>{text}</h1>
         </div>
     </section>
+    </>
   )
 }
 

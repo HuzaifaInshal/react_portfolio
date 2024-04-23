@@ -6,7 +6,6 @@ import Lab from './Lab'
 import About from './About'
 import Contact from './Contact'
 import Cursor from './Cursor'
-import '../Web.css'
 
 
 const Web = () => {
@@ -128,20 +127,21 @@ const Web = () => {
 
   return (
     <>
-      <a href={`${cv ? cv.data : ''}`} target='_blank' className='download'><div className="downloadBox">get cv</div></a>
+      <a href={`${cv ? cv.data : ''}`} target='_blank' onMouseEnter={handleHover} onMouseLeave={handleLeave}
+      className='download'><div className="downloadBox">get cv</div></a>
       <Cursor isHovered={isHovered} />
       <Navbar number={visibleHeadingIndex} visible={isVisible} onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave} onHover={handleHover} onLeave={handleLeave} />
       <div ref={headingRefs[0]} data-index={0}><Start data-cursor="pointer" /></div>
       <div className="back">
         {/* <div ref={headingRefs[1]} data-index={1}><Work data-cursor="pointer2" data={dataAPI.Projects} /></div> */}
-        <div ref={headingRefs[1]} data-index={1}><Work data-cursor="pointer2" data={dataAPI} /></div>
+        <div ref={headingRefs[1]} data-index={1}><Work data-cursor="pointer2" data={dataAPI} handleHover={handleHover} handleLeave={handleLeave}/></div>
         {/* <div ref={headingRefs[2]} data-index={2}><Lab lab={dataAPI.Projects} /></div> */}
-        <div ref={headingRefs[2]} data-index={2}><Lab lab={dataAPI} /></div>
+        <div ref={headingRefs[2]} data-index={2}><Lab lab={dataAPI} handleHover={handleHover} handleLeave={handleLeave}/></div>
       </div>
       {/* <div ref={headingRefs[3]} data-index={3}><About Work={dataAPI.Works} Cert={dataAPI.Certifications} Skills={dataAPI.SecondarySkills} /></div> */}
       <div ref={headingRefs[3]} data-index={3}><About about={display}/></div>
-      <div ref={headingRefs[4]} data-index={4}><Contact /></div>
+      <div ref={headingRefs[4]} data-index={4}><Contact handleHover={handleHover} handleLeave={handleLeave}/></div>
     </>
   )
 }

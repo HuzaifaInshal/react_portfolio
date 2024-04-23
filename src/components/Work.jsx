@@ -15,7 +15,7 @@ const defaultOptions = {
 	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
 }
 
-const Work = ({data}) => {
+const Work = ({data,handleHover,handleLeave}) => {
   const [sentdata,setSentData] = useState()
   const [sentCount,setSentCount] = useState(1)
   let index = 0;
@@ -70,7 +70,7 @@ const Work = ({data}) => {
               }else{
                 if(single.data.type.major==="work" && single.data.isActive && single.data.type.minor==="web"){
                   index+=1;
-                  return(<div onClick={()=>clickHanlder(single.data)} key={single.id}><Tilt options={defaultOptions} key={single.data.id} className="reduce card">
+                  return(<div onMouseEnter={handleHover} onMouseLeave={handleLeave} onClick={()=>clickHanlder(single.data)} key={single.id}><Tilt options={defaultOptions} key={single.data.id} className="reduce card">
               <div className="card-item" style={{ backgroundImage: `url(${imageURL(single.data.titlePictureURL)})` }}>
                 <h1 className="wor-tits">{index}. {single.data.title}</h1>
                 <div className="line-break"></div>
@@ -103,7 +103,7 @@ const Work = ({data}) => {
               }else{
                 if(single.data.type.major==="work" && single.data.isActive && single.data.type.minor==="threed"){
                   index+=1
-                  return(<div onClick={()=>clickHanlder(single.data)} key={single.id}><Tilt options={defaultOptions} key={single.data.id} className="reduce card" >
+                  return(<div onMouseEnter={handleHover} onMouseLeave={handleLeave} onClick={()=>clickHanlder(single.data)} key={single.id}><Tilt options={defaultOptions} key={single.data.id} className="reduce card" >
               <div className="card-item" style={{ backgroundImage: `url(${imageURL(single.data.titlePictureURL)})` }}>
                 <h1 className="wor-tits">{index}. {single.data.title}</h1>
                 <div className="line-break"></div>
@@ -122,7 +122,7 @@ const Work = ({data}) => {
               }else{
                 if(single.data.type.major==="work" && single.data.isActive && single.data.type.minor==="game"){
                   index+=1
-                  return(<div onClick={()=>clickHanlder(single.data)} key={single.id}><Tilt options={defaultOptions} key={single.data.id} className="reduce card" >
+                  return(<div onMouseEnter={handleHover} onMouseLeave={handleLeave} onClick={()=>clickHanlder(single.data)} key={single.id}><Tilt options={defaultOptions} key={single.data.id} className="reduce card" >
               <div className="card-item" style={{ backgroundImage: `url(${imageURL(single.data.titlePictureURL)})` }}>
                 <h1 className="wor-tits">{index}. {single.data.title}</h1>
                 <div className="line-break"></div>

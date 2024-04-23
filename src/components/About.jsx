@@ -3,7 +3,7 @@ import React, { useRef,useEffect, useState } from 'react'
 const About = ({about}) => {
   return (
     <section id="about" >
-          <div style={{"height":"400%"}} className="holder">
+          <div style={{"height":"405%"}} className="holder">
           <div className="circle"></div>
           <div className="timeline"></div>
           </div>

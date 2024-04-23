@@ -12,6 +12,7 @@ html{
 }
 *{
   font-family: 'Roboto Condensed', sans-serif;
+  cursor: none;
 }
 body{
   overflow-x: hidden;
@@ -575,6 +576,7 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
   width: 100vw;
   overflow: hidden;
   background-color: var(--primary-color);
+  z-index: 1;
   /* background-color: #0e0c16; */
 }
 .load-screen{
@@ -700,7 +702,7 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
 }
 @media only screen and (max-width:550px){
   .card-item{
-    height: 130px;
+    height: 195px;
     width: 280px;
   }
 }
@@ -857,6 +859,7 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   color: white;
   position: absolute;
   left: 50%;
+  transition: 0.5s;
   transform: translateX(-50%);
 }
 
@@ -967,6 +970,9 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   {
     margin-left:5%;
     margin-right:5%;
+  }
+  .overlayChild1 video{
+    margin-top: 25px;
   }
   .overlayBlog img{
     margin: 0;
