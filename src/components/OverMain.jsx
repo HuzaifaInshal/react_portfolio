@@ -64,7 +64,7 @@ const OverMain = ({ data, count }) => {
                 </div>
                 <div className="overlayChild1">
                     {data && data.mp4URL!=='' ? <VideoPlayer url={data.mp4URL}/> : ''}
-                    {data ? <img src={data.titlePictureURL} style={{minHeight:'50px'}} alt='picture' className='overlayTitlePic'/> : 'loading..'}
+                    {data ? <img src={data.titlePictureURL} alt='picture' className='overlayTitlePic'/> : 'loading..'}
                     {data && data.blogFlow!=='' ? <div className='overlayBlog' dangerouslySetInnerHTML={{ __html: data.blogFlow }}></div> : ''}
                 </div>
             </div>

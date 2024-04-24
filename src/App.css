@@ -966,6 +966,7 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   .overlayChild1{
     width: 100%;
     padding: 0;
+    padding-bottom: 25px;
   }
   .overlayChild1 img,
   .overlayChild1 video,
