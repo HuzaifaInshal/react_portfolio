@@ -1,9 +1,16 @@
 import React, { useRef,useEffect, useState } from 'react'
 
 const About = ({about}) => {
+  const parentRef = useRef(null);
+  const [holderHeight, setHolderHeight] = useState(100);
+  useEffect(() => {
+    if (parentRef.current) {
+        setHolderHeight(parentRef.current.clientHeight);
+    }
+  }, [about]);
   return (
-    <section id="about" >
-          <div style={{"height":"405%"}} className="holder">
+    <section id="about" ref={parentRef}>
+          <div style={{"height": `${holderHeight +32 }px` }} className="holder">
           <div className="circle"></div>
           <div className="timeline"></div>
           </div>

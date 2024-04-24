@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import Welcome from './Welcome';
 import Web from './Web';
 import HackerEffect from './Hacker';
-
 const Main = ({data,lab}) => {
 
   return (

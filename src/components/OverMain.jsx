@@ -52,13 +52,13 @@ const OverMain = ({ data, count }) => {
                     {data && data.gitLinks.length !== 0 ?
                         <>
                             {data.gitLinks.map((each) => (
-                                <a href={each}><button className='emailme overlayBtn'>Link to Code</button></a>
+                                <a href={each} target='_blank'><button className='emailme overlayBtn'>Link to Code</button></a>
                             ))}
                         </> : ''}
                     {data && data.liveLinks.length !== 0 ?
                         <>
                             {data.liveLinks.map((each) => (
-                                <a href={each}><button className='emailme overlayBtn'>Check Live</button></a>
+                                <a href={each} target='_blank'><button className='emailme overlayBtn'>Check Live</button></a>
                             ))}
                         </> : ''}
                 </div>

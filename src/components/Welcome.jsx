@@ -82,6 +82,7 @@ const Welcome = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setClassb("animate__fadeOutDownBig")
+            setTop('-20px')
         }, 10000);
         return () => clearTimeout(timer);
       }, []);

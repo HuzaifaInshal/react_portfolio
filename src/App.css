@@ -124,17 +124,16 @@ nav:hover{
   justify-content: center;
   align-items: center;
   width: max-content;
-  height: 200%;
+  /* height: 200%; */
   position: absolute;
-  /* top: 20%; */
   left: calc(var(--gap) - 3%);
   z-index: 2;
 }
-@media only screen and (max-width:800px){
+/* @media only screen and (max-width:800px){
   .holder{
     height: 300%;
   }
-}
+} */
 @media only screen and (max-width:550px){
   .holder{
     left:calc(var(--gap) - 5%)
@@ -180,6 +179,7 @@ nav:hover{
   font-size: var(--fonta);
   font-weight: 700;
   display: inline;
+  margin-right: 25px;
 }
 .hack{
   margin: 0;
@@ -702,8 +702,9 @@ animation-play-state: running; /* can be set dynamically to pause mid animation*
 }
 @media only screen and (max-width:550px){
   .card-item{
-    height: 195px;
-    width: 280px;
+     height: 195px; 
+    width: 280px; 
+    margin-left: 28px;
   }
 }
 .card-item::before {
@@ -732,6 +733,14 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   flex-direction: column;
   gap: 25px;
   margin-top: 25px;
+}
+@media only screen and (max-width:550px){
+  .webHolder{
+    margin-top: 120px;
+  }
+  .work:before{
+    font-size: 180px;
+  }
 }
 .threedholder,
 .gameHolder{
@@ -957,6 +966,7 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
   .overlayChild1{
     width: 100%;
     padding: 0;
+    padding-bottom: 25px;
   }
   .overlayChild1 img,
   .overlayChild1 video,

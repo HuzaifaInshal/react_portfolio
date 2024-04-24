@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useRef,useEffect} from 'react'
 import { Tilt } from 'react-tilt'
 import imageURL from '../imageURL';
 import OverMain from './OverMain';
@@ -52,11 +52,19 @@ const Work = ({data,handleHover,handleLeave}) => {
     setSentCount(sentCount + 1);
   }
 
+  const parentRef = useRef(null);
+  const [holderHeight, setHolderHeight] = useState(100);
+  useEffect(() => {
+    if (parentRef.current) {
+        setHolderHeight(parentRef.current.clientHeight);
+    }
+  }, [data]);
+
   return (
     <>
     <OverMain data={sentdata} count={sentCount}/>
-    <section id='work' className="work">
-            <div style={{"height":"300%"}} className="holder">
+    <section id='work' className="work" ref={parentRef}>
+            <div style={{"height":`${holderHeight + 32}px`}} className="holder">
           <div className="circle"></div>
           <div className="timeline"></div>
         </div>

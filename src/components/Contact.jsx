@@ -3,7 +3,7 @@ import React from 'react'
 const Contact = ({handleHover,handleLeave}) => {
   return (
     <section id="contact">
-          <div className="holder"style={{"height":"100%"}}>
+          <div className="holder"style={{"height":`100vh`}}>
           <div className="circle"></div>
           <div className="timeline"></div>
           </div>
