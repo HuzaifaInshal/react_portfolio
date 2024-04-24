@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef,useCallback } from 'react'
 import VideoPlayer from './VideoPlayer'
 
-const OverMain = ({ data, count }) => {
+const OverMain = ({ data, count,setShowOver }) => {
     const [overlay1W, setOverlay1W] = useState(0)
     const [overlay2W, setOverlay2W] = useState(0)
     const [overlay3W, setOverlay3W] = useState(0)
     useEffect(() => {
-        console.log(data);
         if (count !== 1) {
             document.body.style.overflowY = 'hidden';
             document.documentElement.style.overflowY = 'hidden';
@@ -31,11 +30,12 @@ const OverMain = ({ data, count }) => {
             setOverlay1W(0)
         }, 500)
     }
+
     return (
         <>
             <div className='overlay overlay1' style={{ width: `${overlay1W}vw` }}></div>
             <div className='overlay overlay2' style={{ width: `${overlay2W}vw` }}></div>
-            <div className='overlay overlay3' style={{ width: `${overlay3W}vw` }}>
+            <div className='overlay overlay3' style={{ width: `${overlay3W}vw` }} >
                 <div className="overlayChild2">
                     <button className='overlay_goBack' onClick={closeOverlay}><i class="fa-solid fa-arrow-left"></i></button>
                     <div className="hashtags">
