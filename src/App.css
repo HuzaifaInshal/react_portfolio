@@ -900,13 +900,13 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
 }
 .overlayChild1{
   padding: 2%;
-  width: 70%;
+  width: 75%;
   display: flex;
   flex-direction: column;
 }
 .overlayChild2{
   padding: 5% 2.5%;
-  width: 30%;
+  width: 25%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -958,8 +958,26 @@ background: linear-gradient(90deg, rgba(0,1,1,0.79) 25%, rgba(111,108,108,0) 100
 .overlayBlog img{
   width: 100%;
 }
+.overlay3{
+  overflow: hidden;
+}
+.overlayChild2{
+  overflow: hidden;
+}
+.overlayChild1{
+  overflow: auto;
+}
 
 @media only screen and (max-width:650px){
+  .overlay3{
+    overflow: auto;
+  }
+  .overlayChild2{
+    overflow: visible;
+  }
+  .overlayChild1{
+    overflow: visible;
+  }
   .overlay3{
     flex-direction: column;
   }
