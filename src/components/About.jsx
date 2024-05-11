@@ -7,6 +7,7 @@ const About = ({about}) => {
     if (parentRef.current) {
         setHolderHeight(parentRef.current.clientHeight);
     }
+    console.log(about);
   }, [about]);
   return (
     <section id="about" ref={parentRef}>
@@ -55,6 +56,14 @@ const About = ({about}) => {
                     Description <span className="white"> : </span>
                     {`${single[3]}`}
                   </div>
+                  {single[4] && single[4].length !=0 ?
+                  <div className="code1 green">
+                  <span className="dots">......</span>
+                  Certificate <span className="white"> : </span>
+                  <a href={single[4]} target='_blank'>Click here to View</a>
+                  </div>
+                    :'' 
+                  }
                   <div className="code1 green">
                     <span className="dots">......</span>
                     <span className="white"> &#125; ,</span>
@@ -110,6 +119,22 @@ const About = ({about}) => {
                     Grade Achieved <span className="white"> : </span>
                     {`${single[3]}`}
                   </div>
+                  { single[4] && single[4].length !=0 ?
+                  <div className="code1 green">
+                  <span className="dots">......</span>
+                  Description <span className="white"> : </span>
+                  {single[4]}
+                  </div>
+                    :''
+                  }
+                  { single[5] && single[5].length !=0 ?
+                  <div className="code1 green">
+                  <span className="dots">......</span>
+                  FYP/Thesis <span className="white"> : </span>
+                  {single[5]}
+                  </div>
+                    :''
+                  }
                   <div className="code1 green">
                     <span className="dots">......</span>
                     <span className="white"> &#125; ,</span>
@@ -128,16 +153,39 @@ const About = ({about}) => {
               <div className="code1 white"><span className="dots">....</span>]</div>
               <div className="code1 white"><span className="dots">..</span>&#125;</div>
 
-              <div className="code1 dots">..<span className="yellow">certifications</span><span className="white">() &#123;</span></div>
+              <div className="code1 dots">..<span className="yellow">certificationsAndAchievements</span><span className="white">() &#123;</span></div>
               <div className="code1 purple"><span className="dots">....</span>return <span className="white">[</span></div>
               {about ? (
                 about.data.certifications.slice().reverse().map((single,index) => (
                   <>
-                  <div className="code1 green" key={index}>
+                  <div className="code1 green">
                     <span className="dots">......</span>
                     <span className="white">&#123; </span>
+                  </div>
+                  <div className="code1 green">
+                    <span className="dots">......</span>
                     {index} <span className="white"> : </span>
-                    {single} <span className="white"> &#125;,</span>
+                    {`${single[0]}`}
+                  </div>
+                  { single[1] && single[1].length !=0 ?
+                  <div className="code1 green">
+                  <span className="dots">......</span>
+                  View Course <span className="white"> : </span>
+                  <a href={single[1]} target='_blank'>Click here to View</a>
+                  </div>
+                    :''
+                  }
+                  { single[2] && single[2].length !=0 ?
+                  <div className="code1 green">
+                  <span className="dots">......</span>
+                  Certificate <span className="white"> : </span>
+                  <a href={single[2]} target='_blank'>Click here to View</a>
+                  </div>
+                    :''
+                  }
+                  <div className="code1 green">
+                    <span className="dots">......</span>
+                    <span className="white"> &#125; ,</span>
                   </div>
                   </>
                 ))
